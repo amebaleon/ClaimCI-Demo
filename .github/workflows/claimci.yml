@@ -1,0 +1,16 @@
+name: ClaimCI
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions: {}
+
+jobs:
+  claimci:
+    permissions:
+      contents: read
+      checks: write
+    uses: amebaleon/ClaimCI/.github/workflows/claimci-external.yml@ce5faf57429aeba43c19aa4fec36044e46d2e076
+    secrets:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
