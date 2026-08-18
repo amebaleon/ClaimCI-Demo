@@ -55,6 +55,6 @@ Review. Root `research.yaml` and the legacy manifest workflow are removed.
   byte identity, workflow cutover, and scratch cleanup under
   `docs/verification/no-manifest-pilot-fixtures.md`.
 - [x] Commit the verification record on the scoped feature branch.
-- [ ] Push the branch and open one Draft PR.
+- [x] Push the branch and open one Draft PR.
 - [ ] Read back URL, head/base refs, Draft flag, changed files, checks, and
   mergeability. Do not merge.

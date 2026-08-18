@@ -123,3 +123,9 @@ use the exact catalog title. The PR body must not add scientific claims.
 
 Do not add a manifest or Actions workflow, merge active evidence to main,
 execute repository content, or create a permanent scenario branch.
+
+## Publication
+
+The scoped branch was pushed and opened as Draft PR
+`https://github.com/amebaleon/ClaimCI-Demo/pull/2` against `main`. The PR was
+read back as open, Draft, mergeable, and clean at creation. It was not merged.
