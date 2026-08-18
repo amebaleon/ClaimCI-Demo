@@ -1,0 +1,7 @@
+{
+  "runs": [
+    {"run_id": "recall-replica-1", "seed": 797, "recall": 0.69},
+    {"run_id": "recall-replica-2", "seed": 808, "recall": 0.70},
+    {"run_id": "recall-replica-3", "seed": 919, "recall": 0.71}
+  ]
+}

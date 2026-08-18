@@ -1,0 +1,4 @@
+run_id,seed,auc
+auc-candidate-1,474,0.73
+auc-candidate-2,585,0.75
+auc-candidate-3,696,0.77
