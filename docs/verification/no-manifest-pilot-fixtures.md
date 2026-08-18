@@ -5,7 +5,7 @@
 - Repository: `amebaleon/ClaimCI-Demo`
 - Base: `origin/main` at `45ee0c4fbfe6457a809bd6b609f717da1615a80e`
 - Branch: `codex/no-manifest-pilot-fixtures`
-- ClaimCI Core: `c54beaf5cd06d57425eeed383942bf44392ede6f`
+- ClaimCI Core: `9140d73f2eeeb9d396382e39bd036e8877c2a66f`
 - Core remote `main` was read immediately before validation and matched the
   pinned checkout.
 
@@ -77,7 +77,7 @@ The restored approved tree passed afterward.
 From the Demo worktree:
 
 ```powershell
-$env:CLAIMCI_CORE_ROOT='C:\ClaimCI-worktrees\hosted-core-v03'
+$env:CLAIMCI_CORE_ROOT='<detached checkout of the pinned ClaimCI Core SHA>'
 $env:PYTHONDONTWRITEBYTECODE='1'
 python -B -m unittest discover -s tests -v
 ```
@@ -91,7 +91,7 @@ $env:PYTHONDONTWRITEBYTECODE='1'
 python -B -m pytest -q -p no:cacheprovider
 ```
 
-Result: `952 passed, 13 skipped in 31.30s`.
+Result: `957 passed, 13 skipped in 33.64s`.
 
 Compile validation used `python -B -m compileall -q claimci` with
 `PYTHONPYCACHEPREFIX` directed to an external temporary directory. It exited

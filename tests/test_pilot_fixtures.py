@@ -11,7 +11,7 @@ import tempfile
 import unittest
 
 
-EXPECTED_CORE_SHA = "c54beaf5cd06d57425eeed383942bf44392ede6f"
+EXPECTED_CORE_SHA = "9140d73f2eeeb9d396382e39bd036e8877c2a66f"
 EXPECTED_SCENARIOS = {
     "complete-supported": ("complete", "SUPPORTED"),
     "not-supported": ("complete", "NOT_SUPPORTED"),

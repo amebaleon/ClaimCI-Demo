@@ -10,7 +10,7 @@ materialization in a temporary head, supplies the scenario's exact PR title,
 and drives real ClaimCI Discovery, adapters, planner, Audit, and advisory
 Review. Root `research.yaml` and the legacy manifest workflow are removed.
 
-**Pinned ClaimCI Core:** `c54beaf5cd06d57425eeed383942bf44392ede6f`
+**Pinned ClaimCI Core:** `9140d73f2eeeb9d396382e39bd036e8877c2a66f`
 
 **Spec:** `docs/superpowers/specs/2026-08-18-claimci-demo-no-manifest-pilot-fixtures-design.md`
 
