@@ -37,9 +37,13 @@ semantic role in the Audit.
 
 `scenarios.json` is the machine-readable catalog for exact titles, expected
 states, deterministic verdicts, mapping prompts, missing evidence, and fixture
-paths. The Markdown guide refers to this catalog without embedding lines that
-look like additional scientific claims. That keeps catalog maintenance PRs
-from accidentally activating scenarios.
+paths. Every exact title contains both the explicit metric baseline-to-candidate
+pair recognized by current ClaimCI Discovery and a second, explicit unitless
+`improved by at least N` clause. This makes
+`AuditClaimSpec.minimum_absolute_improvement` non-null before the planner
+considers artifact mapping or missing evidence. The Markdown guide refers to
+this catalog without embedding the exact claim lines, keeping catalog
+maintenance PRs from accidentally activating scenarios.
 
 ## Scenario contracts
 
@@ -121,9 +125,12 @@ supplying the catalog title as trusted PR metadata. The test then runs:
 The assertions require one discovered claim, claim-scoped artifact and mapping
 paths, the exact expected planning/public state, real deterministic verdicts,
 advisory-only Review output, a bounded two-choice mapping question, typed
-missing evidence, no `research.yaml`, and empty scratch cleanup. The fake Review
-provider exists only in the test process; it cannot create deterministic
-authority.
+missing evidence, no `research.yaml`, and empty scratch cleanup. They also
+require a non-null minimum absolute improvement for every scenario; prove that
+`MAPPING_NEEDED` comes specifically from the two candidate-results choices;
+and prove that `PARTIAL` is caused by the intentionally absent candidate eval
+artifact rather than a missing threshold. The fake Review provider exists only
+in the test process; it cannot create deterministic authority.
 
 ## Non-goals
 
