@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "claimci_core_sha": "c54beaf5cd06d57425eeed383942bf44392ede6f",
+  "scenarios": {
+    "complete-supported": {
+      "metric": "accuracy",
+      "pr_title": "accuracy improved from 0.60 to 0.70; improved by at least 0.05",
+      "template_path": "pilot-fixtures/templates/complete-supported",
+      "activation_marker": "pilot-fixtures/active/activation.txt",
+      "materialization": [
+        {"template": "pilot-fixtures/templates/complete-supported/baseline-01.fixture", "path": "pilot-fixtures/active/accuracy_baseline_results.csv", "format": "csv"},
+        {"template": "pilot-fixtures/templates/complete-supported/baseline-02.fixture", "path": "pilot-fixtures/active/accuracy_baseline_config.yaml", "format": "yaml"},
+        {"template": "pilot-fixtures/templates/complete-supported/baseline-03.fixture", "path": "pilot-fixtures/active/accuracy_baseline_train.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/complete-supported/baseline-04.fixture", "path": "pilot-fixtures/active/accuracy_baseline_eval.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/complete-supported/candidate-01.fixture", "path": "pilot-fixtures/active/accuracy_candidate_results.csv", "format": "csv"},
+        {"template": "pilot-fixtures/templates/complete-supported/candidate-02.fixture", "path": "pilot-fixtures/active/accuracy_candidate_config.yaml", "format": "yaml"},
+        {"template": "pilot-fixtures/templates/complete-supported/candidate-03.fixture", "path": "pilot-fixtures/active/accuracy_candidate_train.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/complete-supported/candidate-04.fixture", "path": "pilot-fixtures/active/accuracy_candidate_eval.jsonl", "format": "jsonl"}
+      ],
+      "expected_public_state": "complete",
+      "expected_deterministic_verdict": "SUPPORTED",
+      "expected_advisory_state": "ADVISORY_COMPLETE",
+      "expected_minimum_absolute_improvement": 0.05
+    },
+    "not-supported": {
+      "metric": "f1",
+      "pr_title": "f1 improved from 0.50 to 0.70; improved by at least 0.10",
+      "template_path": "pilot-fixtures/templates/not-supported",
+      "activation_marker": "pilot-fixtures/active/activation.txt",
+      "materialization": [
+        {"template": "pilot-fixtures/templates/not-supported/baseline-01.fixture", "path": "pilot-fixtures/active/f1_baseline_results.json", "format": "json"},
+        {"template": "pilot-fixtures/templates/not-supported/baseline-02.fixture", "path": "pilot-fixtures/active/f1_baseline_config.toml", "format": "toml"},
+        {"template": "pilot-fixtures/templates/not-supported/baseline-03.fixture", "path": "pilot-fixtures/active/f1_baseline_train.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/not-supported/baseline-04.fixture", "path": "pilot-fixtures/active/f1_baseline_eval.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/not-supported/candidate-01.fixture", "path": "pilot-fixtures/active/f1_candidate_results.json", "format": "json"},
+        {"template": "pilot-fixtures/templates/not-supported/candidate-02.fixture", "path": "pilot-fixtures/active/f1_candidate_config.toml", "format": "toml"},
+        {"template": "pilot-fixtures/templates/not-supported/candidate-03.fixture", "path": "pilot-fixtures/active/f1_candidate_train.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/not-supported/candidate-04.fixture", "path": "pilot-fixtures/active/f1_candidate_eval.jsonl", "format": "jsonl"}
+      ],
+      "expected_public_state": "complete",
+      "expected_deterministic_verdict": "NOT_SUPPORTED",
+      "expected_advisory_state": "ADVISORY_COMPLETE",
+      "expected_minimum_absolute_improvement": 0.1
+    },
+    "insufficient-evidence": {
+      "metric": "precision",
+      "pr_title": "precision improved from 0.50 to 0.65; improved by at least 0.10",
+      "template_path": "pilot-fixtures/templates/insufficient-evidence",
+      "activation_marker": "pilot-fixtures/active/activation.txt",
+      "materialization": [
+        {"template": "pilot-fixtures/templates/insufficient-evidence/baseline-01.fixture", "path": "pilot-fixtures/active/precision_baseline_results.csv", "format": "csv"},
+        {"template": "pilot-fixtures/templates/insufficient-evidence/baseline-02.fixture", "path": "pilot-fixtures/active/precision_baseline_config.yaml", "format": "yaml"},
+        {"template": "pilot-fixtures/templates/insufficient-evidence/baseline-03.fixture", "path": "pilot-fixtures/active/precision_baseline_train.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/insufficient-evidence/baseline-04.fixture", "path": "pilot-fixtures/active/precision_baseline_eval.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/insufficient-evidence/candidate-01.fixture", "path": "pilot-fixtures/active/precision_candidate_results.csv", "format": "csv"},
+        {"template": "pilot-fixtures/templates/insufficient-evidence/candidate-02.fixture", "path": "pilot-fixtures/active/precision_candidate_config.yaml", "format": "yaml"},
+        {"template": "pilot-fixtures/templates/insufficient-evidence/candidate-03.fixture", "path": "pilot-fixtures/active/precision_candidate_train.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/insufficient-evidence/candidate-04.fixture", "path": "pilot-fixtures/active/precision_candidate_eval.jsonl", "format": "jsonl"}
+      ],
+      "expected_public_state": "complete",
+      "expected_deterministic_verdict": "INSUFFICIENT_EVIDENCE",
+      "expected_advisory_state": "ADVISORY_COMPLETE",
+      "expected_minimum_absolute_improvement": 0.1
+    },
+    "mapping-needed": {
+      "metric": "recall",
+      "pr_title": "recall improved from 0.55 to 0.70; improved by at least 0.10",
+      "template_path": "pilot-fixtures/templates/mapping-needed",
+      "activation_marker": "pilot-fixtures/active/activation.txt",
+      "materialization": [
+        {"template": "pilot-fixtures/templates/mapping-needed/baseline-01.fixture", "path": "pilot-fixtures/active/recall_baseline_results.json", "format": "json"},
+        {"template": "pilot-fixtures/templates/mapping-needed/baseline-02.fixture", "path": "pilot-fixtures/active/recall_baseline_config.toml", "format": "toml"},
+        {"template": "pilot-fixtures/templates/mapping-needed/baseline-03.fixture", "path": "pilot-fixtures/active/recall_baseline_train.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/mapping-needed/baseline-04.fixture", "path": "pilot-fixtures/active/recall_baseline_eval.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/mapping-needed/candidate-01.fixture", "path": "pilot-fixtures/active/recall_candidate_results_primary.json", "format": "json"},
+        {"template": "pilot-fixtures/templates/mapping-needed/candidate-02.fixture", "path": "pilot-fixtures/active/recall_candidate_results_replica.json", "format": "json"},
+        {"template": "pilot-fixtures/templates/mapping-needed/candidate-03.fixture", "path": "pilot-fixtures/active/recall_candidate_config.toml", "format": "toml"},
+        {"template": "pilot-fixtures/templates/mapping-needed/candidate-04.fixture", "path": "pilot-fixtures/active/recall_candidate_train.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/mapping-needed/candidate-05.fixture", "path": "pilot-fixtures/active/recall_candidate_eval.jsonl", "format": "jsonl"}
+      ],
+      "expected_public_state": "mapping_needed",
+      "expected_deterministic_verdict": null,
+      "expected_advisory_state": "NOT_RUN",
+      "expected_minimum_absolute_improvement": 0.1,
+      "expected_mapping_prompt": "Which file contains the candidate results?",
+      "expected_mapping_choices": [
+        "pilot-fixtures/active/recall_candidate_results_primary.json",
+        "pilot-fixtures/active/recall_candidate_results_replica.json"
+      ]
+    },
+    "partial": {
+      "metric": "auc",
+      "pr_title": "auc improved from 0.60 to 0.75; improved by at least 0.10",
+      "template_path": "pilot-fixtures/templates/partial",
+      "activation_marker": "pilot-fixtures/active/activation.txt",
+      "materialization": [
+        {"template": "pilot-fixtures/templates/partial/baseline-01.fixture", "path": "pilot-fixtures/active/auc_baseline_results.csv", "format": "csv"},
+        {"template": "pilot-fixtures/templates/partial/baseline-02.fixture", "path": "pilot-fixtures/active/auc_baseline_config.yaml", "format": "yaml"},
+        {"template": "pilot-fixtures/templates/partial/baseline-03.fixture", "path": "pilot-fixtures/active/auc_baseline_train.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/partial/baseline-04.fixture", "path": "pilot-fixtures/active/auc_baseline_eval.jsonl", "format": "jsonl"},
+        {"template": "pilot-fixtures/templates/partial/candidate-01.fixture", "path": "pilot-fixtures/active/auc_candidate_results.csv", "format": "csv"},
+        {"template": "pilot-fixtures/templates/partial/candidate-02.fixture", "path": "pilot-fixtures/active/auc_candidate_config.yaml", "format": "yaml"},
+        {"template": "pilot-fixtures/templates/partial/candidate-03.fixture", "path": "pilot-fixtures/active/auc_candidate_train.jsonl", "format": "jsonl"}
+      ],
+      "expected_public_state": "partial",
+      "expected_deterministic_verdict": null,
+      "expected_advisory_state": "NOT_RUN",
+      "expected_minimum_absolute_improvement": 0.1,
+      "intentionally_missing_path": "pilot-fixtures/active/auc_candidate_eval.jsonl"
+    }
+  }
+}
