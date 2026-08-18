@@ -97,7 +97,7 @@ base/head roots, materializes only the selected pack into the head, supplies
 the exact PR title, then runs:
 
 1. `discover_repository()`;
-2. registered adapters for mapping-bound active artifacts;
+2. registered adapters for relevant passive artifact candidates;
 3. `planning_request_from_discovery()`;
 4. `plan_ephemeral_audit()`;
 5. `run_unified_analysis()` where deterministic execution is possible.

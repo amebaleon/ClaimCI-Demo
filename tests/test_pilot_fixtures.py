@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import json
 import hashlib
+import json
 import os
 from pathlib import Path
 import shutil
@@ -18,6 +18,11 @@ EXPECTED_SCENARIOS = {
     "insufficient-evidence": ("complete", "INSUFFICIENT_EVIDENCE"),
     "mapping-needed": ("mapping_needed", None),
     "partial": ("partial", None),
+}
+EXPECTED_DRIVERS = {
+    "complete-supported": (),
+    "not-supported": ("CONFIG.COMPUTE_MISMATCH",),
+    "insufficient-evidence": ("SEED.SINGLE_RUN",),
 }
 FORMAT_SUFFIXES = {
     "csv": ".csv",
@@ -134,6 +139,8 @@ def _materialize_scenario(
     if not isinstance(raw_materialization, list) or not raw_materialization:
         raise AssertionError("scenario materialization must be a non-empty list")
     written: list[str] = []
+    templates: set[str] = set()
+    destinations: set[str] = set()
     for raw in raw_materialization:
         if not isinstance(raw, dict) or set(raw) != {"template", "path", "format"}:
             raise AssertionError("materialization entries must use the exact schema")
@@ -150,6 +157,10 @@ def _materialize_scenario(
             raise AssertionError("materialized evidence must use pilot-fixtures/active")
         if destination.suffix != FORMAT_SUFFIXES[format_name]:
             raise AssertionError("materialized extension must match its declared format")
+        if template.as_posix() in templates or destination.as_posix() in destinations:
+            raise AssertionError("materialization sources and destinations must be unique")
+        templates.add(template.as_posix())
+        destinations.add(destination.as_posix())
         source = head / template
         target = head / destination
         if not source.is_file() or target.exists():
@@ -324,7 +335,7 @@ class PilotFixtureTests(unittest.TestCase):
 
             evidence = []
             for artifact in discovery.artifacts:
-                if str(artifact.path) not in mapped_paths:
+                if claim.reference.claim_id not in artifact.relevant_claim_ids:
                     continue
                 if artifact.kind not in {
                     ArtifactKind.RESULTS,
@@ -362,6 +373,7 @@ class PilotFixtureTests(unittest.TestCase):
             self.assertTrue(
                 all(
                     str(item.artifact.path).startswith(prefix)
+                    or str(item.artifact.path) == ".claimci/review.yaml"
                     for item in request.normalized_evidence
                 )
             )
@@ -374,6 +386,17 @@ class PilotFixtureTests(unittest.TestCase):
             )
 
             planning = plan_ephemeral_audit(request)
+            self.assertTrue(
+                all(
+                    str(item.artifact.path).startswith(prefix)
+                    for item in (
+                        *planning.plan.baseline_evidence,
+                        *planning.plan.candidate_evidence,
+                    )
+                )
+                if planning.plan is not None
+                else True
+            )
             provider = _AdvisoryProvider()
             runtime = RuntimeExecutionContext(
                 repository=REPOSITORY,
@@ -396,6 +419,17 @@ class PilotFixtureTests(unittest.TestCase):
                 self.assertEqual(planning.state, PlanningState.READY)
                 self.assertEqual(result.state, AnalysisState.COMPLETE)
                 self.assertEqual(result.authoritative_verdict, Verdict(expected_verdict))
+                self.assertIsNotNone(result.deterministic)
+                assert result.deterministic is not None
+                findings = result.deterministic.payload["findings"]
+                self.assertEqual(
+                    tuple(
+                        item["rule_id"]
+                        for item in findings
+                        if item["impact"] != "NONE"
+                    ),
+                    EXPECTED_DRIVERS[scenario_id],
+                )
                 self.assertIsNotNone(result.research_interpretation)
                 assert result.research_interpretation is not None
                 self.assertEqual(

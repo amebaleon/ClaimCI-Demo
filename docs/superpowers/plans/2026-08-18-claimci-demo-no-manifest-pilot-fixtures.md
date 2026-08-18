@@ -42,18 +42,19 @@ Review. Root `research.yaml` and the legacy manifest workflow are removed.
 - [x] Make the focused real-core test green for all five states.
 - [x] Mutation-check threshold, ambiguity, missing candidate eval, and template
   byte-equality assertions, then restore green.
-- [ ] Commit the scoped fixture implementation.
+- [x] Commit the scoped fixture implementation.
 
 ## Task 3: Verification and Draft PR
 
-- [ ] Run the focused fixture test against the exact current core SHA.
-- [ ] Run the complete ClaimCI core suite and compileall with caches outside the
+- [x] Run the focused fixture test against the exact current core SHA.
+- [x] Run the complete ClaimCI core suite and compileall with caches outside the
   core checkout; confirm that checkout remains clean.
-- [ ] Run Demo unittest discovery, JSON validation, passive-file/scope checks,
+- [x] Run Demo unittest discovery, JSON validation, passive-file/scope checks,
   `git diff --check origin/main...HEAD`, and status checks.
-- [ ] Record commands, outcomes, verdicts, mapping choices, missing evidence,
+- [x] Record commands, outcomes, verdicts, mapping choices, missing evidence,
   byte identity, workflow cutover, and scratch cleanup under
   `docs/verification/no-manifest-pilot-fixtures.md`.
-- [ ] Commit the verification record, push the branch, and open one Draft PR.
+- [x] Commit the verification record on the scoped feature branch.
+- [ ] Push the branch and open one Draft PR.
 - [ ] Read back URL, head/base refs, Draft flag, changed files, checks, and
   mergeability. Do not merge.
