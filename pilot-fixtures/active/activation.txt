@@ -1,0 +1,2 @@
+scenario=mapping-needed
+run_id=staging-e2e-20260820-mapping-01
