@@ -1,2 +1,2 @@
 scenario=partial
-run_id=pr35-preservation-diagnostic-20260822-partial-03
+run_id=pr36-fresh-partial-20260823-01
