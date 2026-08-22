@@ -1,0 +1,2 @@
+scenario=partial
+run_id=pr37-fresh-partial-20260823-01

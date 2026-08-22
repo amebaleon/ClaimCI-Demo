@@ -1,0 +1,4 @@
+run_id,seed,auc
+auc-base-1,141,0.58
+auc-base-2,252,0.60
+auc-base-3,363,0.62
