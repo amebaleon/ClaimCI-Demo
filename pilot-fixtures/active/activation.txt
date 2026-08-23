@@ -1,0 +1,2 @@
+scenario=not-supported
+run_id=staging-e2e-20260823-not-supported-01

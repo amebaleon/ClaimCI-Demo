@@ -1,0 +1,7 @@
+{
+  "runs": [
+    {"run_id": "f1-candidate-1", "seed": 444, "f1": 0.68},
+    {"run_id": "f1-candidate-2", "seed": 555, "f1": 0.70},
+    {"run_id": "f1-candidate-3", "seed": 666, "f1": 0.72}
+  ]
+}
