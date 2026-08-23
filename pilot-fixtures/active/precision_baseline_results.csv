@@ -1,0 +1,4 @@
+run_id,seed,precision
+precision-base-1,121,0.48
+precision-base-2,232,0.50
+precision-base-3,343,0.52
