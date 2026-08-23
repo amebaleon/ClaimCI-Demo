@@ -1,0 +1,15 @@
+# baseline configuration
+training_steps = 100
+epochs = 4
+batch_size = 8
+learning_rate = 0.001
+model = "pilot-model-v1"
+
+[dataset]
+identifier = "recall-train"
+version = "v1"
+
+[evaluation]
+dataset_identifier = "recall-eval"
+dataset_version = "v1"
+split = "test"
