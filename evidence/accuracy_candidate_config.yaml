@@ -1,4 +1,4 @@
-# candidate configuration
+# candidate configuration — synthetic staging certificate
 training_steps: 100
 epochs: 4
 batch_size: 8
