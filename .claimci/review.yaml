@@ -12,3 +12,5 @@ limits:
   max_file_chars: 16000
   max_output_tokens_per_call: 2000
   timeout_seconds: 30
+
+# Controlled stale-binding retry after one provider validation failure.
