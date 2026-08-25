@@ -13,4 +13,4 @@ limits:
   max_output_tokens_per_call: 2000
   timeout_seconds: 30
 
-# Controlled stale-binding retry after one provider validation failure.
+# Controlled stale-binding bounded retry with the proven eight-role mapping guidance.
