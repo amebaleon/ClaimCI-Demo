@@ -1,0 +1,4 @@
+run_id,seed,accuracy
+accuracy-candidate-1,404,0.68
+accuracy-candidate-2,505,0.70
+accuracy-candidate-3,606,0.72
